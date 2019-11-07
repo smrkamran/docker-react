@@ -4,7 +4,5 @@ services:
 
 before_install:
   - docker build -t sameerkamran/docker-react -f Dockerfile.dev .
-
 script:
-  - docker run sameerkamran/docker-react npm run test -- --coverage
-  - exit
+  - docker run -e CI=true sameerkamran/docker-react npm run test -- --coverage
